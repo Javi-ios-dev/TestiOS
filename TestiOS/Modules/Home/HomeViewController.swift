@@ -14,12 +14,12 @@ import UIKit
 
 protocol HomeDisplayLogic: AnyObject {
     func displaySomething(viewModel: Home.Something.ViewModel)
-//    func displaySomethingElse(viewModel: Home.SomethingElse.ViewModel)
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+    let homeView = HomeView()
 
     // MARK: Object lifecycle
 
@@ -60,11 +60,19 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     }
 
     // MARK: - View lifecycle
+    override func loadView() {
+        view = homeView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Home"
+        
+        homeView.tableView.delegate = self
+        homeView.tableView.dataSource = self
+        
         doSomething()
-        view.backgroundColor = .systemPink
+        
 //        doSomethingElse()
     }
     
@@ -101,4 +109,23 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
 //    func displaySomethingElse(viewModel: Home.SomethingElse.ViewModel) {
 //        // do sometingElse with viewModel
 //    }
+}
+
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.cellId, for: indexPath) as? TextFieldTableViewCell
+//            cell?.textField.delegate = self
+            return cell!
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.cellId, for: indexPath)
+            return cell
+        }
+    }
+    
 }
