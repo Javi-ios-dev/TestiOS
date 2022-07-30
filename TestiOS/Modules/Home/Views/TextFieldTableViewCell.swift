@@ -17,9 +17,10 @@ class TextFieldTableViewCell: UITableViewCell {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        // Add views and constraints
         setupComponents()
     }
     
@@ -29,7 +30,7 @@ class TextFieldTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -43,21 +44,22 @@ class TextFieldTableViewCell: UITableViewCell {
             textField.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
-
+    
 }
 
 extension TextFieldTableViewCell: UITextFieldDelegate {
+    
+    // Allow to enter only characters
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print("textfield delegate")
-                   do {
-                       let regex = try NSRegularExpression(pattern: ".*[^A-Za-z].*", options: [])
-                       if regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil {
-                           return false
-                       }
-                   }
-                   catch {
-                       print("ERROR")
-                   }
-               return true
-       }
+        do {
+            let regex = try NSRegularExpression(pattern: ".*[^A-Za-z].*", options: [])
+            if regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil {
+                return false
+            }
+        }
+        catch {
+            print("ERROR")
+        }
+        return true
+    }
 }

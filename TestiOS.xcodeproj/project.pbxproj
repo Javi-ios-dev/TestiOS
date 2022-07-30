@@ -27,6 +27,7 @@
 		A75EA7FD2894D22A00393FE9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA7FC2894D22A00393FE9 /* NetworkManager.swift */; };
 		A75EA7FF2894D2A400393FE9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA7FE2894D2A400393FE9 /* HomeView.swift */; };
 		A75EA8012894DA5E00393FE9 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8002894DA5E00393FE9 /* TextFieldTableViewCell.swift */; };
+		A75EA8032895B02400393FE9 /* SelfieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8022895B02400393FE9 /* SelfieTableViewCell.swift */; };
 		C80BF99E5AD293FCD3615C2C /* Pods_TestiOS_TestiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373EE8852322F91917BB7631 /* Pods_TestiOS_TestiOSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		A75EA7FC2894D22A00393FE9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A75EA7FE2894D2A400393FE9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A75EA8002894DA5E00393FE9 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		A75EA8022895B02400393FE9 /* SelfieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieTableViewCell.swift; sourceTree = "<group>"; };
 		A7D7CF23C893BEB95E2EB3DC /* Pods-TestiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestiOSTests.debug.xcconfig"; path = "Target Support Files/Pods-TestiOSTests/Pods-TestiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7DAF3B9DF970DE3FC69C243 /* Pods_TestiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE27871F5BE3E70F88B44482 /* Pods-TestiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestiOS.release.xcconfig"; path = "Target Support Files/Pods-TestiOS/Pods-TestiOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			children = (
 				A75EA7FE2894D2A400393FE9 /* HomeView.swift */,
 				A75EA8002894DA5E00393FE9 /* TextFieldTableViewCell.swift */,
+				A75EA8022895B02400393FE9 /* SelfieTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				A710DFAB2894CCE20034EE91 /* HomeModels.swift in Sources */,
 				A710DFAC2894CCE20034EE91 /* HomeViewController.swift in Sources */,
 				A710DFAA2894CCE20034EE91 /* HomeRouter.swift in Sources */,
+				A75EA8032895B02400393FE9 /* SelfieTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

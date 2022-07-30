@@ -12,7 +12,11 @@ class HomeView: UIView {
     
     let tableView: UITableView = {
         let tableview = UITableView()
+        
         tableview.register(TextFieldTableViewCell.self, forCellReuseIdentifier: TextFieldTableViewCell.cellId)
+        tableview.register(SelfieTableViewCell.self, forCellReuseIdentifier: SelfieTableViewCell.cellId)
+        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "simpleId")
+        
         tableview.translatesAutoresizingMaskIntoConstraints = false
         return tableview
     }()
@@ -29,7 +33,6 @@ class HomeView: UIView {
     func setupComponents() {
         
         addSubview(tableView)
-        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: topAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -38,3 +41,4 @@ class HomeView: UIView {
         ])
     }
 }
+
