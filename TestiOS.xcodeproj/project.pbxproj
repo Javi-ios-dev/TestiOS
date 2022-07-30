@@ -28,6 +28,17 @@
 		A75EA7FF2894D2A400393FE9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA7FE2894D2A400393FE9 /* HomeView.swift */; };
 		A75EA8012894DA5E00393FE9 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8002894DA5E00393FE9 /* TextFieldTableViewCell.swift */; };
 		A75EA8032895B02400393FE9 /* SelfieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8022895B02400393FE9 /* SelfieTableViewCell.swift */; };
+		A75EA8072895D41300393FE9 /* HomeViewControllerTableViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8062895D41300393FE9 /* HomeViewControllerTableViewDelegates.swift */; };
+		A75EA80F2895D7E000393FE9 /* ChartsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8092895D7E000393FE9 /* ChartsPresenter.swift */; };
+		A75EA8102895D7E000393FE9 /* ChartsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA80A2895D7E000393FE9 /* ChartsWorker.swift */; };
+		A75EA8112895D7E000393FE9 /* ChartsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA80B2895D7E000393FE9 /* ChartsRouter.swift */; };
+		A75EA8122895D7E000393FE9 /* ChartsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA80C2895D7E000393FE9 /* ChartsModels.swift */; };
+		A75EA8132895D7E000393FE9 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA80D2895D7E000393FE9 /* ChartsViewController.swift */; };
+		A75EA8142895D7E000393FE9 /* ChartsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA80E2895D7E000393FE9 /* ChartsInteractor.swift */; };
+		A75EA8172895D80000393FE9 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8162895D80000393FE9 /* ChartsView.swift */; };
+		A75EA81A2895E1A500393FE9 /* Reporte.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8192895E1A500393FE9 /* Reporte.swift */; };
+		A75EA81C2895E1BC00393FE9 /* Empresa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA81B2895E1BC00393FE9 /* Empresa.swift */; };
+		A75EA81E2895E1D700393FE9 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA81D2895E1D700393FE9 /* Charts.swift */; };
 		C80BF99E5AD293FCD3615C2C /* Pods_TestiOS_TestiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373EE8852322F91917BB7631 /* Pods_TestiOS_TestiOSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +87,17 @@
 		A75EA7FE2894D2A400393FE9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A75EA8002894DA5E00393FE9 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		A75EA8022895B02400393FE9 /* SelfieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieTableViewCell.swift; sourceTree = "<group>"; };
+		A75EA8062895D41300393FE9 /* HomeViewControllerTableViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTableViewDelegates.swift; sourceTree = "<group>"; };
+		A75EA8092895D7E000393FE9 /* ChartsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsPresenter.swift; sourceTree = "<group>"; };
+		A75EA80A2895D7E000393FE9 /* ChartsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsWorker.swift; sourceTree = "<group>"; };
+		A75EA80B2895D7E000393FE9 /* ChartsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsRouter.swift; sourceTree = "<group>"; };
+		A75EA80C2895D7E000393FE9 /* ChartsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsModels.swift; sourceTree = "<group>"; };
+		A75EA80D2895D7E000393FE9 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		A75EA80E2895D7E000393FE9 /* ChartsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsInteractor.swift; sourceTree = "<group>"; };
+		A75EA8162895D80000393FE9 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
+		A75EA8192895E1A500393FE9 /* Reporte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reporte.swift; sourceTree = "<group>"; };
+		A75EA81B2895E1BC00393FE9 /* Empresa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empresa.swift; sourceTree = "<group>"; };
+		A75EA81D2895E1D700393FE9 /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
 		A7D7CF23C893BEB95E2EB3DC /* Pods-TestiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestiOSTests.debug.xcconfig"; path = "Target Support Files/Pods-TestiOSTests/Pods-TestiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7DAF3B9DF970DE3FC69C243 /* Pods_TestiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE27871F5BE3E70F88B44482 /* Pods-TestiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestiOS.release.xcconfig"; path = "Target Support Files/Pods-TestiOS/Pods-TestiOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +221,7 @@
 				A710DFA52894CCE20034EE91 /* HomeModels.swift */,
 				A710DFA62894CCE20034EE91 /* HomeViewController.swift */,
 				A710DFA72894CCE20034EE91 /* HomeInteractor.swift */,
+				A75EA8062895D41300393FE9 /* HomeViewControllerTableViewDelegates.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -206,6 +229,7 @@
 		A710DFAE2894CF9D0034EE91 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A75EA8082895D7C700393FE9 /* Charts */,
 				A710DF9F2894BA990034EE91 /* Home */,
 			);
 			path = Modules;
@@ -224,9 +248,42 @@
 		A75EA7FB2894D1AC00393FE9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A75EA8182895E17000393FE9 /* Models */,
 				A75EA7FC2894D22A00393FE9 /* NetworkManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		A75EA8082895D7C700393FE9 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				A75EA8152895D7F100393FE9 /* Views */,
+				A75EA8092895D7E000393FE9 /* ChartsPresenter.swift */,
+				A75EA80A2895D7E000393FE9 /* ChartsWorker.swift */,
+				A75EA80B2895D7E000393FE9 /* ChartsRouter.swift */,
+				A75EA80C2895D7E000393FE9 /* ChartsModels.swift */,
+				A75EA80D2895D7E000393FE9 /* ChartsViewController.swift */,
+				A75EA80E2895D7E000393FE9 /* ChartsInteractor.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		A75EA8152895D7F100393FE9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A75EA8162895D80000393FE9 /* ChartsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A75EA8182895E17000393FE9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A75EA8192895E1A500393FE9 /* Reporte.swift */,
+				A75EA81B2895E1BC00393FE9 /* Empresa.swift */,
+				A75EA81D2895E1D700393FE9 /* Charts.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,13 +527,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				A75EA7FD2894D22A00393FE9 /* NetworkManager.swift in Sources */,
+				A75EA8142895D7E000393FE9 /* ChartsInteractor.swift in Sources */,
 				A710DFA82894CCE20034EE91 /* HomePresenter.swift in Sources */,
 				A710DF70289447C30034EE91 /* AppDelegate.swift in Sources */,
+				A75EA8132895D7E000393FE9 /* ChartsViewController.swift in Sources */,
+				A75EA81A2895E1A500393FE9 /* Reporte.swift in Sources */,
+				A75EA8112895D7E000393FE9 /* ChartsRouter.swift in Sources */,
+				A75EA81E2895E1D700393FE9 /* Charts.swift in Sources */,
 				A75EA7FF2894D2A400393FE9 /* HomeView.swift in Sources */,
+				A75EA8172895D80000393FE9 /* ChartsView.swift in Sources */,
 				A710DFA92894CCE20034EE91 /* HomeWorker.swift in Sources */,
 				A75EA8012894DA5E00393FE9 /* TextFieldTableViewCell.swift in Sources */,
+				A75EA81C2895E1BC00393FE9 /* Empresa.swift in Sources */,
+				A75EA8102895D7E000393FE9 /* ChartsWorker.swift in Sources */,
+				A75EA8072895D41300393FE9 /* HomeViewControllerTableViewDelegates.swift in Sources */,
+				A75EA80F2895D7E000393FE9 /* ChartsPresenter.swift in Sources */,
 				A710DFAD2894CCE20034EE91 /* HomeInteractor.swift in Sources */,
 				A710DF72289447C30034EE91 /* SceneDelegate.swift in Sources */,
+				A75EA8122895D7E000393FE9 /* ChartsModels.swift in Sources */,
 				A710DFAB2894CCE20034EE91 /* HomeModels.swift in Sources */,
 				A710DFAC2894CCE20034EE91 /* HomeViewController.swift in Sources */,
 				A710DFAA2894CCE20034EE91 /* HomeRouter.swift in Sources */,

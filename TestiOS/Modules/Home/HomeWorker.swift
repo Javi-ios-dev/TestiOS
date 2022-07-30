@@ -16,8 +16,4 @@ class HomeWorker {
     func doSomeWork() {
         
     }
-//    
-//    func doSomeOtherWork() {
-//
-//    }
 }

@@ -13,7 +13,7 @@
 import UIKit
 
 protocol HomeBusinessLogic {
-    func doSomething(request: Home.Something.Request)
+    func showCharts(request: Home.Charts.Request)
 //    func doSomethingElse(request: Home.SomethingElse.Request)
 }
 
@@ -28,11 +28,11 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
 
     // MARK: Do something (and send response to HomePresenter)
 
-    func doSomething(request: Home.Something.Request) {
+    func showCharts(request: Home.Charts.Request) {
         worker = HomeWorker()
         worker?.doSomeWork()
 
-        let response = Home.Something.Response()
+        let response = Home.Charts.Response()
         presenter?.presentSomething(response: response)
     }
 //
