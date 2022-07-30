@@ -24,6 +24,7 @@
 		A710DFAB2894CCE20034EE91 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A710DFA52894CCE20034EE91 /* HomeModels.swift */; };
 		A710DFAC2894CCE20034EE91 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A710DFA62894CCE20034EE91 /* HomeViewController.swift */; };
 		A710DFAD2894CCE20034EE91 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A710DFA72894CCE20034EE91 /* HomeInteractor.swift */; };
+		A75EA7FD2894D22A00393FE9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA7FC2894D22A00393FE9 /* NetworkManager.swift */; };
 		C80BF99E5AD293FCD3615C2C /* Pods_TestiOS_TestiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373EE8852322F91917BB7631 /* Pods_TestiOS_TestiOSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		A710DFA52894CCE20034EE91 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		A710DFA62894CCE20034EE91 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A710DFA72894CCE20034EE91 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		A75EA7FC2894D22A00393FE9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A7D7CF23C893BEB95E2EB3DC /* Pods-TestiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestiOSTests.debug.xcconfig"; path = "Target Support Files/Pods-TestiOSTests/Pods-TestiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7DAF3B9DF970DE3FC69C243 /* Pods_TestiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE27871F5BE3E70F88B44482 /* Pods-TestiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestiOS.release.xcconfig"; path = "Target Support Files/Pods-TestiOS/Pods-TestiOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		A75EA7FB2894D1AC00393FE9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A75EA7FC2894D22A00393FE9 /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A75EA7FD2894D22A00393FE9 /* NetworkManager.swift in Sources */,
 				A710DFA82894CCE20034EE91 /* HomePresenter.swift in Sources */,
 				A710DF70289447C30034EE91 /* AppDelegate.swift in Sources */,
 				A710DFA92894CCE20034EE91 /* HomeWorker.swift in Sources */,
