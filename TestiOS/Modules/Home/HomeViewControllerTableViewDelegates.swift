@@ -26,6 +26,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             return cell!
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: SelfieTableViewCell.cellId, for: indexPath)
+            var contentConfiguration = cell.defaultContentConfiguration()
+            contentConfiguration.text = K.Strings.selfieCellTitle
+            cell.contentConfiguration = contentConfiguration
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.cellId, for: indexPath)
@@ -45,6 +48,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         default: break
             
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 58
+        } else {
+            return UITableView.automaticDimension
+        }
+        
     }
     
 }

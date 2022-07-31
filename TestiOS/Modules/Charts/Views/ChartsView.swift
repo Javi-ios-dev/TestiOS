@@ -9,8 +9,24 @@ import Foundation
 import ARKit
 
 class ChartsView: UIView {
+    
+    let collectionView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .clear
+        tableView.register(BranchCleaningPercentageTableViewCell.self, forCellReuseIdentifier: BranchCleaningPercentageTableViewCell.cellId)
+        tableView.register(SecurityInCompaniesTableViewCell.self, forCellReuseIdentifier: SecurityInCompaniesTableViewCell.cellId)
+        tableView.separatorStyle = .none
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        // add views and constraints
         setupComponents()
     }
     
@@ -20,5 +36,13 @@ class ChartsView: UIView {
     
     func setupComponents() {
         backgroundColor = .white
+        
+        addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ])
     }
 }

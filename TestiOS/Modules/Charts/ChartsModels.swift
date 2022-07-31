@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Charts
 
 enum Charts
 {
@@ -30,7 +31,8 @@ enum Charts
         
         struct ViewModel
         {
-            let charts: Graficas
+            let cleaningChartData: PieChartData
+            let securityChartData: PieChartData
         }
     }
 }

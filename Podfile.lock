@@ -1,4 +1,8 @@
 PODS:
+  - Charts (4.0.3):
+    - Charts/Core (= 4.0.3)
+  - Charts/Core (4.0.3):
+    - SwiftAlgorithms (~> 1.0)
   - Firebase (9.3.0):
     - Firebase/Core (= 9.3.0)
   - Firebase/Core (9.3.0):
@@ -90,12 +94,15 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.1.1)
+  - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
+  - Charts
   - Firebase (~> 9.3)
 
 SPEC REPOS:
   trunk:
+    - Charts
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -107,8 +114,10 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - PromisesObjC
+    - SwiftAlgorithms
 
 SPEC CHECKSUMS:
+  Charts: d959d6723c8eedfdd0735dfc28cb0a71762ac4d9
   Firebase: ef75abb1cdbc746d5a38f4e26c422c807b189b8c
   FirebaseAnalytics: bf46f5163f44097ce2c789de0b3e6f87f1da834a
   FirebaseCore: c088995ece701a021a48a1348ea0174877de2a6a
@@ -120,7 +129,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 2463f2d70ddccd16e8abd24e21a5a14e92b96d6f
+PODFILE CHECKSUM: b3941447e476289f8ce4078be03f214de413d6d3
 
 COCOAPODS: 1.11.3

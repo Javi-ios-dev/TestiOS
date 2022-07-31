@@ -38,10 +38,10 @@ class TextFieldTableViewCell: UITableViewCell {
         contentView.addSubview(textField)
         textField.delegate = self
         NSLayoutConstraint.activate([
-            textField.topAnchor.constraint(equalTo: topAnchor),
-            textField.leadingAnchor.constraint(equalTo: leadingAnchor),
-            textField.topAnchor.constraint(equalTo: topAnchor),
-            textField.trailingAnchor.constraint(equalTo: trailingAnchor),
+            textField.topAnchor.constraint(equalTo: topAnchor, constant: 18),
+            textField.leftAnchor.constraint(equalTo: leftAnchor, constant: 18),
+            textField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -18),
+            textField.rightAnchor.constraint(equalTo: rightAnchor, constant: -18),
         ])
     }
     

@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Charts
 
 protocol ChartsDisplayLogic: AnyObject
 {
@@ -21,6 +22,10 @@ class ChartsViewController: UIViewController, ChartsDisplayLogic {
     var interactor: ChartsBusinessLogic?
     var router: (NSObjectProtocol & ChartsRoutingLogic & ChartsDataPassing)?
     let chartsView = ChartsView()
+    
+    var cleaningChartData = PieChartData()
+    var securityChartData = PieChartData()
+    
 
     // MARK: Object lifecycle
 
@@ -69,8 +74,12 @@ class ChartsViewController: UIViewController, ChartsDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Gráficas"
+        
+        chartsView.collectionView.delegate = self
+        chartsView.collectionView.dataSource = self
+        
+        
         fetchChartsData()
-//        doSomethingElse()
     }
     
     // MARK: - request data from ChartsInteractor
@@ -83,6 +92,10 @@ class ChartsViewController: UIViewController, ChartsDisplayLogic {
     // MARK: - display view model from ChartsPresenter
 
     func displayCharts(viewModel: Charts.ChartsData.ViewModel) {
+        cleaningChartData = viewModel.cleaningChartData
+        securityChartData = viewModel.securityChartData
+        chartsView.collectionView.reloadData()
+        chartsView.layoutSubviews()
         
     }
 }

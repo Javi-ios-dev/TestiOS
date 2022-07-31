@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Charts
 
 protocol ChartsPresentationLogic {
     func PresentCharts(response: Charts.ChartsData.Response)
@@ -22,7 +23,35 @@ class ChartsPresenter: ChartsPresentationLogic {
     // MARK: Parse and calc respnse from ChartsInteractor and send simple view model to ChartsViewController to be displayed
 
     func PresentCharts(response: Charts.ChartsData.Response) {
-        let viewModel = Charts.ChartsData.ViewModel(charts: response.charts)
+        
+        // cleaning chart
+        let reportData = response.charts.reporte
+        var cleaningChartEntries = [PieChartDataEntry]()
+        var cleaningColors = [UIColor]()
+        for report in reportData {
+            let dataEntrie = PieChartDataEntry(value: Double(report.cantidad)!, label: report.valor)
+            cleaningChartEntries.append(dataEntrie)
+            cleaningColors.append(UIColor.random())
+        }
+        let cleaningChartDataSet = PieChartDataSet(entries: cleaningChartEntries, label: "")
+        cleaningChartDataSet.colors = cleaningColors
+        let cleaningChartData = PieChartData(dataSet: cleaningChartDataSet)
+        
+        
+        // security chart
+        let securityData = response.charts.empresas
+        var securityChartEntries = [PieChartDataEntry]()
+        var securityColors = [UIColor]()
+        for security in securityData {
+            let securityChartEntrie = PieChartDataEntry(value: Double(security.porcentaje), label: security.nombre)
+            securityChartEntries.append(securityChartEntrie)
+            securityColors.append(UIColor.random())
+        }
+        let securityChartDataSet = PieChartDataSet(entries: securityChartEntries, label: "")
+        securityChartDataSet.colors = securityColors
+        let securityChartData = PieChartData(dataSet: securityChartDataSet)
+        
+        let viewModel = Charts.ChartsData.ViewModel(cleaningChartData: cleaningChartData, securityChartData: securityChartData)
         viewController?.displayCharts(viewModel: viewModel)
     }
 }
