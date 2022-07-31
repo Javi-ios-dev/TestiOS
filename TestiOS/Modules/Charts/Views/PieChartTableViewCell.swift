@@ -8,7 +8,7 @@
 import UIKit
 import Charts
 
-class BranchCleaningPercentageTableViewCell: UITableViewCell {
+class PieChartTableViewCell: UITableViewCell {
     
     static let cellId = "branchCellId"
     
@@ -18,12 +18,13 @@ class BranchCleaningPercentageTableViewCell: UITableViewCell {
         return pieChartView
     }()
     
-    var piechartData: PieChartData? {
+    var piechartData: PieChartValues? {
         didSet {
             guard let piechartData = piechartData else {
                 return
             }
-            pieChart.data = piechartData
+            pieChart.data = piechartData.piechart
+            titleLabel.text = piechartData.title
         }
     }
     let titleLabel: UILabel = {

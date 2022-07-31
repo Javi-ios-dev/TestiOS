@@ -31,8 +31,13 @@ enum Charts
         
         struct ViewModel
         {
-            let cleaningChartData: PieChartData
-            let securityChartData: PieChartData
+            let cleaningChartData: PieChartValues
+            let securityChartData: PieChartValues
         }
     }
+}
+
+struct PieChartValues {
+    let title: String
+    let piechart: PieChartData
 }

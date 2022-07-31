@@ -51,7 +51,10 @@ class ChartsPresenter: ChartsPresentationLogic {
         securityChartDataSet.colors = securityColors
         let securityChartData = PieChartData(dataSet: securityChartDataSet)
         
-        let viewModel = Charts.ChartsData.ViewModel(cleaningChartData: cleaningChartData, securityChartData: securityChartData)
+        let cleaningChartValues = PieChartValues(title: K.Strings.branchCleaningTitle, piechart: cleaningChartData)
+        let securityChartValue = PieChartValues(title: K.Strings.securityCellTitle, piechart: securityChartData)
+        
+        let viewModel = Charts.ChartsData.ViewModel(cleaningChartData: cleaningChartValues, securityChartData: securityChartValue)
         viewController?.displayCharts(viewModel: viewModel)
     }
 }

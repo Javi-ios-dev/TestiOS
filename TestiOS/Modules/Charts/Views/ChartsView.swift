@@ -13,8 +13,7 @@ class ChartsView: UIView {
     let collectionView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
-        tableView.register(BranchCleaningPercentageTableViewCell.self, forCellReuseIdentifier: BranchCleaningPercentageTableViewCell.cellId)
-        tableView.register(SecurityInCompaniesTableViewCell.self, forCellReuseIdentifier: SecurityInCompaniesTableViewCell.cellId)
+        tableView.register(PieChartTableViewCell.self, forCellReuseIdentifier: PieChartTableViewCell.cellId)
         tableView.separatorStyle = .none
         
         tableView.rowHeight = UITableView.automaticDimension

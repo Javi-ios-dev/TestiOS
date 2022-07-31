@@ -39,8 +39,7 @@
 		A75EA81A2895E1A500393FE9 /* Reporte.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8192895E1A500393FE9 /* Reporte.swift */; };
 		A75EA81C2895E1BC00393FE9 /* Empresa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA81B2895E1BC00393FE9 /* Empresa.swift */; };
 		A75EA81E2895E1D700393FE9 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA81D2895E1D700393FE9 /* Charts.swift */; };
-		A75EA8202895F5B700393FE9 /* BranchCleaningPercentageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA81F2895F5B700393FE9 /* BranchCleaningPercentageTableViewCell.swift */; };
-		A75EA8222895F65900393FE9 /* SecurityInCompaniesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8212895F65900393FE9 /* SecurityInCompaniesTableViewCell.swift */; };
+		A75EA8202895F5B700393FE9 /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA81F2895F5B700393FE9 /* PieChartTableViewCell.swift */; };
 		A75EA8242895F79B00393FE9 /* ChartsViewControllerTableViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8232895F79B00393FE9 /* ChartsViewControllerTableViewDelegates.swift */; };
 		A75EA8272896045700393FE9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8262896045700393FE9 /* Constants.swift */; };
 		C80BF99E5AD293FCD3615C2C /* Pods_TestiOS_TestiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373EE8852322F91917BB7631 /* Pods_TestiOS_TestiOSUITests.framework */; };
@@ -102,8 +101,7 @@
 		A75EA8192895E1A500393FE9 /* Reporte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reporte.swift; sourceTree = "<group>"; };
 		A75EA81B2895E1BC00393FE9 /* Empresa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empresa.swift; sourceTree = "<group>"; };
 		A75EA81D2895E1D700393FE9 /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
-		A75EA81F2895F5B700393FE9 /* BranchCleaningPercentageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchCleaningPercentageTableViewCell.swift; sourceTree = "<group>"; };
-		A75EA8212895F65900393FE9 /* SecurityInCompaniesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityInCompaniesTableViewCell.swift; sourceTree = "<group>"; };
+		A75EA81F2895F5B700393FE9 /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
 		A75EA8232895F79B00393FE9 /* ChartsViewControllerTableViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewControllerTableViewDelegates.swift; sourceTree = "<group>"; };
 		A75EA8262896045700393FE9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A7D7CF23C893BEB95E2EB3DC /* Pods-TestiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestiOSTests.debug.xcconfig"; path = "Target Support Files/Pods-TestiOSTests/Pods-TestiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -282,8 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				A75EA8162895D80000393FE9 /* ChartsView.swift */,
-				A75EA81F2895F5B700393FE9 /* BranchCleaningPercentageTableViewCell.swift */,
-				A75EA8212895F65900393FE9 /* SecurityInCompaniesTableViewCell.swift */,
+				A75EA81F2895F5B700393FE9 /* PieChartTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -549,7 +546,6 @@
 				A75EA7FD2894D22A00393FE9 /* NetworkManager.swift in Sources */,
 				A75EA8142895D7E000393FE9 /* ChartsInteractor.swift in Sources */,
 				A710DFA82894CCE20034EE91 /* HomePresenter.swift in Sources */,
-				A75EA8222895F65900393FE9 /* SecurityInCompaniesTableViewCell.swift in Sources */,
 				A710DF70289447C30034EE91 /* AppDelegate.swift in Sources */,
 				A75EA8132895D7E000393FE9 /* ChartsViewController.swift in Sources */,
 				A75EA81A2895E1A500393FE9 /* Reporte.swift in Sources */,
@@ -561,7 +557,7 @@
 				A75EA8012894DA5E00393FE9 /* TextFieldTableViewCell.swift in Sources */,
 				A75EA81C2895E1BC00393FE9 /* Empresa.swift in Sources */,
 				A75EA8102895D7E000393FE9 /* ChartsWorker.swift in Sources */,
-				A75EA8202895F5B700393FE9 /* BranchCleaningPercentageTableViewCell.swift in Sources */,
+				A75EA8202895F5B700393FE9 /* PieChartTableViewCell.swift in Sources */,
 				A75EA8242895F79B00393FE9 /* ChartsViewControllerTableViewDelegates.swift in Sources */,
 				A75EA8072895D41300393FE9 /* HomeViewControllerTableViewDelegates.swift in Sources */,
 				A75EA80F2895D7E000393FE9 /* ChartsPresenter.swift in Sources */,

@@ -23,8 +23,8 @@ class ChartsViewController: UIViewController, ChartsDisplayLogic {
     var router: (NSObjectProtocol & ChartsRoutingLogic & ChartsDataPassing)?
     let chartsView = ChartsView()
     
-    var cleaningChartData = PieChartData()
-    var securityChartData = PieChartData()
+    var cleaningChartData = PieChartValues(title: "", piechart: PieChartData())
+    var securityChartData = PieChartValues(title: "", piechart: PieChartData())
     
 
     // MARK: Object lifecycle
