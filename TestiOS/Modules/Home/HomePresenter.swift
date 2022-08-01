@@ -13,7 +13,7 @@
 import UIKit
 
 protocol HomePresentationLogic {
-    func presentSomething(response: Home.Charts.Response)
+    func presentCharts(response: Home.Charts.Response)
     func presentNewBakcgroundColor(response: Home.BackgroundColor.Response)
     func presentSelfie(response: Home.RetriveSelfie.Response)
     func presentUploadSelfie(response: Home.UploadSelfie.Response)
@@ -24,9 +24,9 @@ class HomePresenter: HomePresentationLogic {
     
     // MARK: Parse and calc respnse from HomeInteractor and send simple view model to HomeViewController to be displayed
     
-    func presentSomething(response: Home.Charts.Response) {
+    func presentCharts(response: Home.Charts.Response) {
         let viewModel = Home.Charts.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+        viewController?.displayCharts(viewModel: viewModel)
     }
     
     func presentNewBakcgroundColor(response: Home.BackgroundColor.Response) {

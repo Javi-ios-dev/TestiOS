@@ -32,7 +32,7 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
 
     func showCharts(request: Home.Charts.Request) {
         let response = Home.Charts.Response()
-        presenter?.presentSomething(response: response)
+        presenter?.presentCharts(response: response)
     }
     
     func addDatabaseObserver(request: Home.Charts.Request) {

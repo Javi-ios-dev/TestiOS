@@ -17,7 +17,7 @@ import FirebaseFirestore
 
 
 protocol HomeDisplayLogic: AnyObject {
-    func displaySomething(viewModel: Home.Charts.ViewModel)
+    func displayCharts(viewModel: Home.Charts.ViewModel)
     func displayNewBackgroundColor(viewModel: Home.BackgroundColor.ViewModel)
     func displayRetriveSelfie(viewModel: Home.RetriveSelfie.ViewModel)
     func displayUploadSelfie(viewModel: Home.UploadSelfie.ViewModel)
@@ -105,7 +105,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     // MARK: - display view model from HomePresenter
     
-    func displaySomething(viewModel: Home.Charts.ViewModel) {
+    func displayCharts(viewModel: Home.Charts.ViewModel) {
         router?.routeToCharts()
     }
     
