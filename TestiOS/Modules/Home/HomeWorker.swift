@@ -12,6 +12,8 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseFirestore
+import FirebaseStorage
 
 
 class HomeWorker {
@@ -28,7 +30,59 @@ class HomeWorker {
             
             
             completionHanlder(value!["backgroundColor"] as! String)
-              
+            
+        }
+    }
+    
+    func uploadSelfie(withUIImage uiimage: UIImage, andName name: String, completionHandler: @escaping()->Void) {
+        
+        let storageRef = Storage.storage().reference()
+        let imageData = uiimage.jpegData(compressionQuality: 0.8)
+        
+        let path = "selfies/\(name).jpg"
+        let fileRef = storageRef.child(path)
+        
+        fileRef.putData(imageData!) { metadata, error in
+            if error == nil && metadata != nil {
+                let db = Firestore.firestore()
+                db.collection("selfies").document("\(name)").setData(["url": path])
+                
+                completionHandler()
+                
+            }
+        }
+        
+        
+    }
+    
+    func retriveSelfie(with name: String, completionHandler: @escaping(UIImage)->Void) {
+        let db = Firestore.firestore()
+        
+        db.collection("selfies").document("\(name)").getDocument { document, error in
+            if let document = document, document.exists {
+                //                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                let url = document["url"] as? String
+                
+                //retrive data image
+                let storegeRef = Storage.storage().reference()
+                let fileref = storegeRef.child(url!)
+                // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                _ = fileref.getData(maxSize: 15 * 1024 * 1024) { data, error in
+                    
+                    if let error = error {
+                        // Uh-oh, an error occurred!
+                        print("\(error)")
+                    } else {
+                        // Data for "images/island.jpg" is returned
+                        let image = UIImage(data: data!)
+                        
+                        completionHandler(image!)
+                    }
+                }
+                print("Document data: \(url!)")
+            } else {
+                print("Document does not exist")
+            }
         }
     }
 }

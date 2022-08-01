@@ -10,11 +10,6 @@ import UIKit
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        /**
-         0: TextfieldTableViewcell
-         1: Seflie cell
-         2: Charts cell
-         */
         return 3
     }
     
@@ -81,5 +76,75 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
             return
         }
         self.selfieImage = image
+    }
+}
+
+// 
+extension HomeViewController {
+    func showCamera() {
+        
+        let alertController = UIAlertController(title: nil, message: "Selfie.", preferredStyle: .alert)
+        
+        let showSelfie = UIAlertAction(title: "Ver selfie", style: .default, handler: { (alert: UIAlertAction!) in
+            
+            // get name from textfield cell
+            let cell = self.homeView.tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? TextFieldTableViewCell
+            let name = cell?.textField.text!
+            
+            guard name! != "" else {
+                let noselfiecontroller = UIAlertController(title: nil, message: "Introduce tu nombre", preferredStyle: .alert)
+                noselfiecontroller.addAction(UIAlertAction(title: "Ok", style: .default))
+                self.present(noselfiecontroller, animated: true)
+                return
+            }
+            
+            self.retriveSelfie(withName: name!)
+        })
+        
+        
+        let retakePicture = UIAlertAction(title: "Tomar selfie", style: .default, handler: {  (alert: UIAlertAction!) in
+            self.retakeSelfie()
+        })
+        
+        alertController.addAction(retakePicture)
+        alertController.addAction(showSelfie)
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func retakeSelfie() {
+        let picker =   UIImagePickerController()
+        
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.sourceType = .photoLibrary
+        } else {
+            picker.sourceType = .camera
+        }
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    func uploadSelfie() {
+        
+        guard selfieImage != nil else {
+            let noselfiecontroller = UIAlertController(title: nil, message: "Toma una foto primero", preferredStyle: .alert)
+            noselfiecontroller.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(noselfiecontroller, animated: true)
+            return
+        }
+        
+        let cell = homeView.tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? TextFieldTableViewCell
+        let name = cell?.textField.text!
+        
+        
+        guard name != nil else {
+            print("is no name")
+            let namecontroller = UIAlertController(title: nil, message: "Ingresa tu nombre", preferredStyle: .alert)
+            namecontroller.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(namecontroller, animated: true)
+            return
+        }
+        
+        self.uploadSelfie(withUIImage: self.selfieImage!, andName: name!)
     }
 }

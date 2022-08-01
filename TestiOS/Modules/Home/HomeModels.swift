@@ -43,13 +43,28 @@ enum Home{
         }
     }
     
-    enum TakeSelfie {
+    enum RetriveSelfie {
         struct Request {
-            
+            let name: String
         }
         
         struct Response {
-
+            let selfieImage: UIImage
+        }
+        
+        struct ViewModel {
+            let selfieImage: UIImage
+        }
+    }
+    
+    enum UploadSelfie {
+        struct Request {
+            let name: String
+            let selfieImage: UIImage
+        }
+        
+        struct Response {
+            
         }
         
         struct ViewModel {

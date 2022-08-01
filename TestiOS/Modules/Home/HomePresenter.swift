@@ -15,6 +15,8 @@ import UIKit
 protocol HomePresentationLogic {
     func presentSomething(response: Home.Charts.Response)
     func presentNewBakcgroundColor(response: Home.BackgroundColor.Response)
+    func presentSelfie(response: Home.RetriveSelfie.Response)
+    func presentUploadSelfie(response: Home.UploadSelfie.Response)
 }
 
 class HomePresenter: HomePresentationLogic {
@@ -30,5 +32,15 @@ class HomePresenter: HomePresentationLogic {
     func presentNewBakcgroundColor(response: Home.BackgroundColor.Response) {
         let viewModel = Home.BackgroundColor.ViewModel(hexColor: response.hexColor)
         viewController?.displayNewBackgroundColor(viewModel: viewModel)
+    }
+    
+    func presentSelfie(response: Home.RetriveSelfie.Response) {
+        let viewModel = Home.RetriveSelfie.ViewModel(selfieImage: response.selfieImage)
+        viewController?.displayRetriveSelfie(viewModel: viewModel)
+    }
+    
+    func presentUploadSelfie(response: Home.UploadSelfie.Response) {
+        let viewModel = Home.UploadSelfie.ViewModel()
+        viewController?.displayUploadSelfie(viewModel: viewModel)
     }
 }

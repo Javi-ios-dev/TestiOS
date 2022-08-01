@@ -19,6 +19,8 @@ import FirebaseFirestore
 protocol HomeDisplayLogic: AnyObject {
     func displaySomething(viewModel: Home.Charts.ViewModel)
     func displayNewBackgroundColor(viewModel: Home.BackgroundColor.ViewModel)
+    func displayRetriveSelfie(viewModel: Home.RetriveSelfie.ViewModel)
+    func displayUploadSelfie(viewModel: Home.UploadSelfie.ViewModel)
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
@@ -82,7 +84,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         
         let request = Home.Charts.Request()
         interactor?.addDatabaseObserver(request: request)
-       
+        
     }
     
     // MARK: - request data from HomeInteractor
@@ -91,138 +93,15 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         interactor?.showCharts(request: request)
     }
     
-    func showCamera() {
-        
-        
-        let alertController = UIAlertController(title: nil, message: "Selfie.", preferredStyle: .alert)
-
-        let showSelfie = UIAlertAction(title: "Ver selfie", style: .default, handler: { (alert: UIAlertAction!) in
-            print("ver selfie")
-            
-            
-            let cell = self.homeView.tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? TextFieldTableViewCell
-            let name = cell?.textField.text!
-            
-            guard name! != "" else {
-                let noselfiecontroller = UIAlertController(title: nil, message: "Introduce tu nombre", preferredStyle: .alert)
-                noselfiecontroller.addAction(UIAlertAction(title: "Ok", style: .default))
-                self.present(noselfiecontroller, animated: true)
-                return
-            }
-            
-            self.retriveSelfie()
-            
-            
-
-        })
-        
-        
-        let retakePicture = UIAlertAction(title: "Tomar selfie", style: .default, handler: {  (alert: UIAlertAction!) in
-            print("retomar foto")
-            self.retakeSelfie()
-        })
-
-        alertController.addAction(retakePicture)
-        alertController.addAction(showSelfie)
-        self.present(alertController, animated: true, completion: nil)
-        
+    func retriveSelfie(withName name: String) {
+        let request = Home.RetriveSelfie.Request(name: name)
+        interactor?.retriveSelfie(request: request)
     }
     
-    func retakeSelfie() {
-        let picker =   UIImagePickerController()
-        
-        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
-            picker.sourceType = .photoLibrary
-        } else {
-            picker.sourceType = .camera
-        }
-        picker.delegate = self
-        present(picker, animated: true)
+    func uploadSelfie(withUIImage uiimage: UIImage, andName name: String) {
+        let request = Home.UploadSelfie.Request(name: name, selfieImage: uiimage)
+        interactor?.uploadSelfie(request: request)
     }
-    
-    func uploadSelfie() {
-        
-        guard selfieImage != nil else {
-            print("no selfieimage is set")
-            let noselfiecontroller = UIAlertController(title: nil, message: "Toma una foto primero", preferredStyle: .alert)
-            noselfiecontroller.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(noselfiecontroller, animated: true)
-            return
-        }
-        let storageRef = Storage.storage().reference()
-        let imageData = selfieImage?.jpegData(compressionQuality: 0.3)
-        
-        guard imageData != nil else {
-            print("error imagedata")
-            
-            return
-        }
-        
-        
-        let cell = homeView.tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? TextFieldTableViewCell
-        let name = cell?.textField.text!
-        
-        
-        guard name != nil else {
-            print("is no name")
-            let namecontroller = UIAlertController(title: nil, message: "Ingresa tu nombre", preferredStyle: .alert)
-            namecontroller.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(namecontroller, animated: true)
-            return
-        }
-        
-        let path = "selfies/\(name!).jpg"
-        let fileRef = storageRef.child(path)
-        
-        let uploadTask = fileRef.putData(imageData!) { metadata, error in
-            if error == nil && metadata != nil {
-                let db = Firestore.firestore()
-                db.collection("selfies").document("\(name!)").setData(["url": path])
-                
-            }
-        }
-    }
-    
-    func retriveSelfie() {
-        let db = Firestore.firestore()
-        
-        let cell = homeView.tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? TextFieldTableViewCell
-        let name = cell?.textField.text!
-        db.collection("selfies").document("\(name!)").getDocument { document, error in
-            if let document = document, document.exists {
-                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                let url = document["url"] as? String
-                
-                    //retrive data image
-                let storegeRef = Storage.storage().reference()
-                let fileref = storegeRef.child(url!)
-                // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-                fileref.getData(maxSize: 15 * 1024 * 1024) { data, error in
-                    
-                  if let error = error {
-                    // Uh-oh, an error occurred!
-                      print("\(error)")
-                  } else {
-                    // Data for "images/island.jpg" is returned
-                    let image = UIImage(data: data!)
-                          
-                          
-                          let selfieViewController = SelfieViewController()
-                          selfieViewController.selfieUIimage = image
-                          self.present(selfieViewController, animated: true)
-                      
-                      
-                  }
-                }
-                
-                    print("Document data: \(url!)")
-                } else {
-                    print("Document does not exist")
-                }
-        }
-    }
-    
-    
     
     // MARK: - display view model from HomePresenter
     
@@ -232,6 +111,20 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     func displayNewBackgroundColor(viewModel: Home.BackgroundColor.ViewModel) {
         self.homeView.backgroundColor = UIColor(hexString: "#\(viewModel.hexColor)")
+    }
+    
+    func displayRetriveSelfie(viewModel: Home.RetriveSelfie.ViewModel) {
+        let image = viewModel.selfieImage
+        
+        let selfieViewController = SelfieViewController()
+        selfieViewController.selfieUIimage = image
+        self.present(selfieViewController, animated: true)
+    }
+    
+    func displayUploadSelfie(viewModel: Home.UploadSelfie.ViewModel) {
+        let noselfiecontroller = UIAlertController(title: nil, message: "Selfie enviada", preferredStyle: .alert)
+        noselfiecontroller.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(noselfiecontroller, animated: true)
     }
 }
 

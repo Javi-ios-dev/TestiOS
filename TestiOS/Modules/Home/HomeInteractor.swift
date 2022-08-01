@@ -15,7 +15,8 @@ import UIKit
 protocol HomeBusinessLogic {
     func showCharts(request: Home.Charts.Request)
     func addDatabaseObserver(request: Home.Charts.Request)
-//    func doSomethingElse(request: Home.SomethingElse.Request)
+    func retriveSelfie(request: Home.RetriveSelfie.Request)
+    func uploadSelfie(request: Home.UploadSelfie.Request)
 }
 
 protocol HomeDataStore {
@@ -41,12 +42,20 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
             self.presenter?.presentNewBakcgroundColor(response: response)
         })
     }
-//
-//    func doSomethingElse(request: Home.SomethingElse.Request) {
-//        worker = HomeWorker()
-//        worker?.doSomeOtherWork()
-//
-//        let response = Home.SomethingElse.Response()
-//        presenter?.presentSomethingElse(response: response)
-//    }
+    
+    func retriveSelfie(request: Home.RetriveSelfie.Request) {
+        worker = HomeWorker()
+        worker?.retriveSelfie(with: request.name, completionHandler: { uiimage in
+            let response = Home.RetriveSelfie.Response(selfieImage: uiimage)
+            self.presenter?.presentSelfie(response: response)
+        })
+    }
+    
+    func uploadSelfie(request: Home.UploadSelfie.Request) {
+        worker = HomeWorker()
+        worker?.uploadSelfie(withUIImage: request.selfieImage, andName: request.name, completionHandler: {
+            let response = Home.UploadSelfie.Response()
+            self.presenter?.presentUploadSelfie(response: response)
+        })
+    }
 }
