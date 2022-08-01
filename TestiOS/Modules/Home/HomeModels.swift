@@ -42,4 +42,18 @@ enum Home{
             let hexColor: String
         }
     }
+    
+    enum TakeSelfie {
+        struct Request {
+            
+        }
+        
+        struct Response {
+
+        }
+        
+        struct ViewModel {
+            
+        }
+    }
 }

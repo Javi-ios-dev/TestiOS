@@ -36,6 +36,10 @@ class HomeView: UIView {
         return button
     }()
     
+    
+    
+    var selfieBottomConstraint: NSLayoutConstraint? = nil
+    
     lazy var stackview: UIStackView = {
         let stackview = UIStackView(arrangedSubviews: [
             tableView,
@@ -65,7 +69,10 @@ class HomeView: UIView {
             stackview.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             sendButton.heightAnchor.constraint(equalToConstant: 62),
+            
         ])
+        
+        
     }
     
     @objc func sendButtonPress() {
