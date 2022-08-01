@@ -31,10 +31,7 @@ class ChartsPresenter: ChartsPresentationLogic {
         var cleaningColors = [UIColor]()
         for report in reportData {
             
-            if(report.cantidad == "60") {
-                
-            }
-            let dataEntrie = PieChartDataEntry(value: Double(report.cantidad)!, label: report.valor)
+            let dataEntrie = PieChartDataEntry(value: Double(report.cantidad)!, label: report.cantidad == "60" ? "Si" : "No")
             cleaningChartEntries.append(dataEntrie)
             cleaningColors.append(UIColor.random())
         }
