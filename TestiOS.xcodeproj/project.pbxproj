@@ -24,6 +24,7 @@
 		A710DFAB2894CCE20034EE91 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A710DFA52894CCE20034EE91 /* HomeModels.swift */; };
 		A710DFAC2894CCE20034EE91 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A710DFA62894CCE20034EE91 /* HomeViewController.swift */; };
 		A710DFAD2894CCE20034EE91 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A710DFA72894CCE20034EE91 /* HomeInteractor.swift */; };
+		A73455642897D093001995B1 /* SelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73455632897D093001995B1 /* SelfieViewController.swift */; };
 		A75EA7FD2894D22A00393FE9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA7FC2894D22A00393FE9 /* NetworkManager.swift */; };
 		A75EA7FF2894D2A400393FE9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA7FE2894D2A400393FE9 /* HomeView.swift */; };
 		A75EA8012894DA5E00393FE9 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75EA8002894DA5E00393FE9 /* TextFieldTableViewCell.swift */; };
@@ -86,6 +87,7 @@
 		A710DFA52894CCE20034EE91 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		A710DFA62894CCE20034EE91 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A710DFA72894CCE20034EE91 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		A73455632897D093001995B1 /* SelfieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewController.swift; sourceTree = "<group>"; };
 		A75EA7FC2894D22A00393FE9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A75EA7FE2894D2A400393FE9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A75EA8002894DA5E00393FE9 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
@@ -236,10 +238,19 @@
 		A710DFAE2894CF9D0034EE91 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A73455562897D01B001995B1 /* Selfie */,
 				A75EA8082895D7C700393FE9 /* Charts */,
 				A710DF9F2894BA990034EE91 /* Home */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		A73455562897D01B001995B1 /* Selfie */ = {
+			isa = PBXGroup;
+			children = (
+				A73455632897D093001995B1 /* SelfieViewController.swift */,
+			);
+			path = Selfie;
 			sourceTree = "<group>";
 		};
 		A75EA7FA2894D1A400393FE9 /* Views */ = {
@@ -543,6 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A73455642897D093001995B1 /* SelfieViewController.swift in Sources */,
 				A75EA7FD2894D22A00393FE9 /* NetworkManager.swift in Sources */,
 				A75EA8142895D7E000393FE9 /* ChartsInteractor.swift in Sources */,
 				A710DFA82894CCE20034EE91 /* HomePresenter.swift in Sources */,

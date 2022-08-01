@@ -5,6 +5,7 @@ target 'TestiOS' do
   pod 'Firebase', '~> 9.3'
   pod 'FirebaseDatabase'
   pod 'FirebaseFirestore'
+  pod 'FirebaseStorage'
   pod 'Charts'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
