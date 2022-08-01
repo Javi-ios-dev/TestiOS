@@ -28,6 +28,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     var selfieImage: UIImage? = nil
     
+    
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -103,6 +104,9 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
             let name = cell?.textField.text!
             
             guard name! != "" else {
+                let noselfiecontroller = UIAlertController(title: nil, message: "Introduce tu nombre", preferredStyle: .alert)
+                noselfiecontroller.addAction(UIAlertAction(title: "Ok", style: .default))
+                self.present(noselfiecontroller, animated: true)
                 return
             }
             
@@ -140,6 +144,9 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         
         guard selfieImage != nil else {
             print("no selfieimage is set")
+            let noselfiecontroller = UIAlertController(title: nil, message: "Toma una foto primero", preferredStyle: .alert)
+            noselfiecontroller.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(noselfiecontroller, animated: true)
             return
         }
         let storageRef = Storage.storage().reference()
@@ -147,6 +154,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         
         guard imageData != nil else {
             print("error imagedata")
+            
             return
         }
         
@@ -157,6 +165,9 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         
         guard name != nil else {
             print("is no name")
+            let namecontroller = UIAlertController(title: nil, message: "Ingresa tu nombre", preferredStyle: .alert)
+            namecontroller.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(namecontroller, animated: true)
             return
         }
         
@@ -194,10 +205,10 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
                   } else {
                     // Data for "images/island.jpg" is returned
                     let image = UIImage(data: data!)
-                          self.selfieImage = image
+                          
                           
                           let selfieViewController = SelfieViewController()
-                          selfieViewController.selfieUIimage = self.selfieImage
+                          selfieViewController.selfieUIimage = image
                           self.present(selfieViewController, animated: true)
                       
                       
