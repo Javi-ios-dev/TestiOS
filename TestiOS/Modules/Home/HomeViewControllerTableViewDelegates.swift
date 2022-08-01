@@ -83,7 +83,7 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
 extension HomeViewController {
     func showCamera() {
         
-        let alertController = UIAlertController(title: nil, message: "Selfie.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Selfie", message: "Cambia el nomre para visualizar tu selfie.", preferredStyle: .alert)
         
         let showSelfie = UIAlertAction(title: "Ver selfie", style: .default, handler: { (alert: UIAlertAction!) in
             
@@ -137,8 +137,7 @@ extension HomeViewController {
         let name = cell?.textField.text!
         
         
-        guard name != nil else {
-            print("is no name")
+        guard name! != "" else {
             let namecontroller = UIAlertController(title: nil, message: "Ingresa tu nombre", preferredStyle: .alert)
             namecontroller.addAction(UIAlertAction(title: "Ok", style: .default))
             present(namecontroller, animated: true)
