@@ -14,6 +14,8 @@ class PieChartTableViewCell: UITableViewCell {
     
     let pieChart: PieChartView = {
         let pieChartView = PieChartView()
+        pieChartView.backgroundColor = .clear
+        pieChartView.holeColor = .clear
         pieChartView.translatesAutoresizingMaskIntoConstraints = false
         return pieChartView
     }()
@@ -25,6 +27,14 @@ class PieChartTableViewCell: UITableViewCell {
             }
             pieChart.data = piechartData.piechart
             titleLabel.text = piechartData.title
+            pieChart.animate(xAxisDuration: 0.7, easingOption: .easeInOutSine)
+            
+            let formatter = NumberFormatter()
+               formatter.numberStyle = .percent
+               formatter.maximumFractionDigits = 1
+               formatter.multiplier = 1.0
+            pieChart.data!.setValueFormatter(DefaultValueFormatter(formatter:formatter))
+            
         }
     }
     let titleLabel: UILabel = {

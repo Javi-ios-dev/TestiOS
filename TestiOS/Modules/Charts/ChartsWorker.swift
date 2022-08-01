@@ -11,9 +11,18 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ChartsWorker {
+    
+    var ref: DatabaseReference!
+    
+    init() {
+        ref = Database.database().reference()
+    }
+    
     func fetchChartsData(completionHandler: @escaping(Graficas) -> Void) {
+        
         NetworkManager.shared.getCharts { result in
             switch result {
             case .success(let graficas):
@@ -21,6 +30,13 @@ class ChartsWorker {
             case .failure(_):
                 print("error")
             }
+        }
+    }
+    
+    func colorWorker(completionHanlder: @escaping(String)->Void) {
+        ref.child("appsettings").observe(.value) { snapshot in
+            let value = snapshot.value as? NSDictionary
+            completionHanlder(value!["backgroundColor"] as! String)
         }
     }
 }

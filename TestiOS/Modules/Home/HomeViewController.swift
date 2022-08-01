@@ -11,9 +11,11 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 protocol HomeDisplayLogic: AnyObject {
     func displaySomething(viewModel: Home.Charts.ViewModel)
+    func displayNewBackgroundColor(viewModel: Home.BackgroundColor.ViewModel)
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
@@ -70,6 +72,11 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         
         homeView.tableView.delegate = self
         homeView.tableView.dataSource = self
+        homeView.delegate = self
+        
+        let request = Home.Charts.Request()
+        interactor?.addDatabaseObserver(request: request)
+       
     }
     
     // MARK: - request data from HomeInteractor
@@ -82,6 +89,10 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     func displaySomething(viewModel: Home.Charts.ViewModel) {
         router?.routeToCharts()
+    }
+    
+    func displayNewBackgroundColor(viewModel: Home.BackgroundColor.ViewModel) {
+        self.homeView.backgroundColor = UIColor(hexString: "#\(viewModel.hexColor)")
     }
 }
 

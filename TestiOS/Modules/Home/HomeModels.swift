@@ -28,4 +28,18 @@ enum Home{
             
         }
     }
+    
+    enum BackgroundColor {
+        struct Request {
+            
+        }
+        
+        struct Response {
+            let hexColor: String
+        }
+        
+        struct ViewModel {
+            let hexColor: String
+        }
+    }
 }

@@ -35,6 +35,11 @@ class TextFieldTableViewCell: UITableViewCell {
     }
     
     func setupComponents() {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.08)
+        selectedBackgroundView = view
+        
+        
         contentView.addSubview(textField)
         textField.delegate = self
         NSLayoutConstraint.activate([

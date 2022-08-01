@@ -8,17 +8,42 @@
 import Foundation
 import UIKit
 
+protocol HomeViewDelegate {
+    func didSendButtonPress()
+}
+
 class HomeView: UIView {
+    
+    var delegate: HomeViewDelegate?
     
     let tableView: UITableView = {
         let tableview = UITableView()
-        
+        tableview.backgroundColor = .clear
         tableview.register(TextFieldTableViewCell.self, forCellReuseIdentifier: TextFieldTableViewCell.cellId)
         tableview.register(SelfieTableViewCell.self, forCellReuseIdentifier: SelfieTableViewCell.cellId)
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: "simpleId")
         
         tableview.translatesAutoresizingMaskIntoConstraints = false
         return tableview
+    }()
+    
+    lazy var sendButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(sendButtonPress), for: .touchUpInside)
+        button.setTitle("Enviar foto", for: .normal)
+        return button
+    }()
+    
+    lazy var stackview: UIStackView = {
+        let stackview = UIStackView(arrangedSubviews: [
+            tableView,
+            sendButton
+        ])
+        stackview.axis = .vertical
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        return stackview
     }()
     
     override init(frame: CGRect) {
@@ -31,14 +56,20 @@ class HomeView: UIView {
     }
     
     func setupComponents() {
-        
-        addSubview(tableView)
+        backgroundColor = .white
+        addSubview(stackview)
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackview.topAnchor.constraint(equalTo: topAnchor),
+            stackview.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackview.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stackview.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            sendButton.heightAnchor.constraint(equalToConstant: 62),
         ])
+    }
+    
+    @objc func sendButtonPress() {
+        delegate?.didSendButtonPress()
     }
 }
 

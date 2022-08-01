@@ -14,6 +14,7 @@ import UIKit
 
 protocol HomePresentationLogic {
     func presentSomething(response: Home.Charts.Response)
+    func presentNewBakcgroundColor(response: Home.BackgroundColor.Response)
 }
 
 class HomePresenter: HomePresentationLogic {
@@ -24,5 +25,10 @@ class HomePresenter: HomePresentationLogic {
     func presentSomething(response: Home.Charts.Response) {
         let viewModel = Home.Charts.ViewModel()
         viewController?.displaySomething(viewModel: viewModel)
+    }
+    
+    func presentNewBakcgroundColor(response: Home.BackgroundColor.Response) {
+        let viewModel = Home.BackgroundColor.ViewModel(hexColor: response.hexColor)
+        viewController?.displayNewBackgroundColor(viewModel: viewModel)
     }
 }

@@ -14,6 +14,7 @@ import UIKit
 
 protocol ChartsBusinessLogic {
     func fetchChartsData(request: Charts.ChartsData.Request)
+    func addDatabaseObserver(request: Charts.BackgroundColor.Request)
 }
 
 protocol ChartsDataStore {
@@ -21,6 +22,7 @@ protocol ChartsDataStore {
 }
 
 class ChartsInteractor: ChartsBusinessLogic, ChartsDataStore {
+    
     var presenter: ChartsPresentationLogic?
     var worker: ChartsWorker?
 
@@ -31,6 +33,14 @@ class ChartsInteractor: ChartsBusinessLogic, ChartsDataStore {
         worker?.fetchChartsData(completionHandler: { [weak self] graficas in
             let response = Charts.ChartsData.Response(charts: graficas)
             self!.presenter?.PresentCharts(response: response)
+        })
+    }
+    
+    func addDatabaseObserver(request: Charts.BackgroundColor.Request) {
+        let worker = HomeWorker()
+        worker.colorWorker(completionHanlder: { backgroundColor in
+            let response = Charts.BackgroundColor.Response(hexColor: backgroundColor)
+            self.presenter?.presentNewBakcgroundColor(response: response)
         })
     }
 }

@@ -13,12 +13,10 @@ class ChartsView: UIView {
     let collectionView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
+        
         tableView.register(PieChartTableViewCell.self, forCellReuseIdentifier: PieChartTableViewCell.cellId)
+        
         tableView.separatorStyle = .none
-        
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()

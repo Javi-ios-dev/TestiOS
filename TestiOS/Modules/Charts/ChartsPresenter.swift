@@ -15,6 +15,7 @@ import Charts
 
 protocol ChartsPresentationLogic {
     func PresentCharts(response: Charts.ChartsData.Response)
+    func presentNewBakcgroundColor(response: Charts.BackgroundColor.Response)
 }
 
 class ChartsPresenter: ChartsPresentationLogic {
@@ -29,14 +30,18 @@ class ChartsPresenter: ChartsPresentationLogic {
         var cleaningChartEntries = [PieChartDataEntry]()
         var cleaningColors = [UIColor]()
         for report in reportData {
+            
+            if(report.cantidad == "60") {
+                
+            }
             let dataEntrie = PieChartDataEntry(value: Double(report.cantidad)!, label: report.valor)
             cleaningChartEntries.append(dataEntrie)
             cleaningColors.append(UIColor.random())
         }
         let cleaningChartDataSet = PieChartDataSet(entries: cleaningChartEntries, label: "")
+        
         cleaningChartDataSet.colors = cleaningColors
         let cleaningChartData = PieChartData(dataSet: cleaningChartDataSet)
-        
         
         // security chart
         let securityData = response.charts.empresas
@@ -56,5 +61,10 @@ class ChartsPresenter: ChartsPresentationLogic {
         
         let viewModel = Charts.ChartsData.ViewModel(cleaningChartData: cleaningChartValues, securityChartData: securityChartValue)
         viewController?.displayCharts(viewModel: viewModel)
+    }
+    
+    func presentNewBakcgroundColor(response: Charts.BackgroundColor.Response) {
+        let viewModel = Charts.BackgroundColor.ViewModel(hexColor: response.hexColor)
+        viewController?.displayNewBackgroundColor(viewModel: viewModel)
     }
 }

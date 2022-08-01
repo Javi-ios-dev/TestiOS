@@ -11,9 +11,24 @@
 //
 
 import UIKit
+import FirebaseDatabase
+
 
 class HomeWorker {
-    func doSomeWork() {
-        
+    
+    var ref: DatabaseReference!
+    
+    init() {
+        ref = Database.database().reference()
+    }
+    
+    func colorWorker(completionHanlder: @escaping(String)->Void) {
+        ref.child("appsettings").observe(.value) { snapshot in
+            let value = snapshot.value as? NSDictionary
+            
+            
+            completionHanlder(value!["backgroundColor"] as! String)
+              
+        }
     }
 }

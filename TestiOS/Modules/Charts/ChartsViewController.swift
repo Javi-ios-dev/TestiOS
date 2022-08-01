@@ -16,6 +16,7 @@ import Charts
 protocol ChartsDisplayLogic: AnyObject
 {
     func displayCharts(viewModel: Charts.ChartsData.ViewModel)
+    func displayNewBackgroundColor(viewModel: Charts.BackgroundColor.ViewModel)
 }
 
 class ChartsViewController: UIViewController, ChartsDisplayLogic {
@@ -77,9 +78,12 @@ class ChartsViewController: UIViewController, ChartsDisplayLogic {
         
         chartsView.collectionView.delegate = self
         chartsView.collectionView.dataSource = self
-        
-        
+    
         fetchChartsData()
+        
+        let request = Charts.BackgroundColor.Request()
+        interactor?.addDatabaseObserver(request: request)
+        
     }
     
     // MARK: - request data from ChartsInteractor
@@ -96,6 +100,9 @@ class ChartsViewController: UIViewController, ChartsDisplayLogic {
         securityChartData = viewModel.securityChartData
         chartsView.collectionView.reloadData()
         chartsView.layoutSubviews()
-        
+    }
+    
+    func displayNewBackgroundColor(viewModel: Charts.BackgroundColor.ViewModel) {
+        self.chartsView.backgroundColor = UIColor(hexString: "#\(viewModel.hexColor)")
     }
 }

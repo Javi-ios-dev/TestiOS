@@ -14,6 +14,7 @@ import UIKit
 
 protocol HomeBusinessLogic {
     func showCharts(request: Home.Charts.Request)
+    func addDatabaseObserver(request: Home.Charts.Request)
 //    func doSomethingElse(request: Home.SomethingElse.Request)
 }
 
@@ -29,11 +30,16 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     // MARK: Do something (and send response to HomePresenter)
 
     func showCharts(request: Home.Charts.Request) {
-        worker = HomeWorker()
-        worker?.doSomeWork()
-
         let response = Home.Charts.Response()
         presenter?.presentSomething(response: response)
+    }
+    
+    func addDatabaseObserver(request: Home.Charts.Request) {
+        worker = HomeWorker()
+        worker?.colorWorker(completionHanlder: { backgroundColor in
+            let response = Home.BackgroundColor.Response(hexColor: backgroundColor)
+            self.presenter?.presentNewBakcgroundColor(response: response)
+        })
     }
 //
 //    func doSomethingElse(request: Home.SomethingElse.Request) {
